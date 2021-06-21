@@ -1,7 +1,9 @@
+set nocompatible
 syntax on
+filetype indent on
 
+set smartindent
 set clipboard=unnamedplus
-set termguicolors
 set encoding=UTF-8
 set number
 set noerrorbells
@@ -17,6 +19,7 @@ set incsearch
 set hidden
 set noshowmode
 set cursorline
+set termguicolors
 
 "light cursor
 hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
@@ -26,8 +29,11 @@ nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
 
 set laststatus=2
 set t_Co=256
-set background=dark
 let g:python_highlight_space_errors = 0
+
+execute "set t_8f=\e[38;2;%lu;%lu;%lum"
+execute "set t_8b=\e[48;2;%lu;%lu;%lum"
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                       Plugs
@@ -35,30 +41,42 @@ let g:python_highlight_space_errors = 0
 call plug#begin('~/.config/nvim/plugged')
 
 "gui
-Plug 'paroxayte/vwm.vim'
+"Error not work with Vim zsh!!!
+"Plug 'paroxayte/vwm.vim'
+
+" not helpfull
 "motion (<C-e>, <C-u>)
-Plug 'yuttie/comfortable-motion.vim'
 
 "colorscheme
-Plug 'morhetz/gruvbox'
-Plug 'frazrepo/vim-rainbow'
+"Plug 'morhetz/gruvbox'
+Plug 'overcache/NeoSolarized'
+
+" not work with full coolor scheme
+"Plug 'frazrepo/vim-rainbow'
 Plug 'itchyny/lightline.vim'
 
+
 "Git
-Plug 'https://github.com/tpope/vim-fugitive.git'
+"Plug 'https://github.com/tpope/vim-fugitive.git'
+
+" tree for git
 Plug 'mbbill/undotree'
 
 
-"Type scrypt
+"Type scrypt highlight
 Plug 'leafgarland/typescript-vim'
 
 "Docker
-Plug 'ekalinin/Dockerfile.vim'
-Plug 'kkvh/vim-docker-tools'
+"not helpfull
+"Plug 'ekalinin/Dockerfile.vim'
+"Plug 'kkvh/vim-docker-tools'
 
 "Man 
 Plug 'vim-utils/vim-man'
 
+"tests 
+"not helpfull
+Plug 'https://github.com/alfredodeza/pytest.vim.git'
 
 "Json
 Plug 'elzr/vim-json'
@@ -66,19 +84,22 @@ Plug 'elzr/vim-json'
 "Files
 Plug 'preservim/nerdtree'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'airblade/vim-rooter'
+"Plug 'airblade/vim-rooter'
+
+"API design
+Plug 'IN3D/vim-raml'
 
 
 "Autocomplete
 "Plug 'https://github.com/ycm-core/YouCompleteMe.git'
-Plug 'https://github.com/roxma/nvim-yarp.git'
+Plug 'roxma/nvim-yarp'
 Plug 'https://github.com/roxma/vim-hug-neovim-rpc.git'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'deoplete-plugins/deoplete-jedi'
-Plug 'roxma/nvim-yarp'
-Plug 'ncm2/ncm2'
+Plug 'rstacruz/sparkup', {'rtp': 'vim/'}           
+
 "lsp
+Plug 'ncm2/ncm2'
 Plug 'ncm2/ncm2-bufword'
 Plug 'ncm2/ncm2-path'
 Plug 'neovim/nvim-lspconfig'
@@ -87,6 +108,7 @@ Plug 'nvim-lua/completion-nvim'
 "style scope
 Plug 'junegunn/goyo.vim'
 Plug 'https://github.com/junegunn/limelight.vim.git' 
+Plug 'Yggdroot/indentLine'
 
 "Python style
 Plug 'https://github.com/Vimjas/vim-python-pep8-indent.git'
@@ -94,8 +116,8 @@ Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 Plug 'jiangmiao/auto-pairs'
 
 "R style
-Plug 'jalvesaq/Nvim-R'
-Plug 'gaalcaras/ncm-R'
+"Plug 'jalvesaq/Nvim-R'
+"Plug 'gaalcaras/ncm-R'
 
 
 "other language
@@ -115,8 +137,6 @@ Plug 'isRuslan/vim-es6'
 "Debugger
 Plug 'dense-analysis/ale'
 Plug 'rhysd/git-messenger.vim'
-"Plug 'vim-syntastic/syntastic'
-"Plug 'dbgx/lldb.nvim'
 
 "HEX to bin
 Plug 'https://github.com/glts/vim-magnum.git'
@@ -131,10 +151,10 @@ Plug 'tc50cal/vim-terminal'
 
 
 "Javascript
-Plug 'posva/vim-vue'
+"Plug 'posva/vim-vue'
 Plug 'norcalli/nvim-colorizer.lua'
-Plug 'leafgarland/typescript-vim'
-Plug 'https://github.com/SirVer/ultisnips.git'
+"Plug 'leafgarland/typescript-vim'
+"Plug 'https://github.com/SirVer/ultisnips.git'
 
 "tmux
 Plug 'https://github.com/tpope/vim-tbone.git'
@@ -145,6 +165,17 @@ Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 " comments
 Plug 'https://github.com/preservim/nerdcommenter.git'
 
+" xml
+Plug 'othree/xml.vim'
+"Plug 'tpope/vim-ragtag'
+"Plug 'tpope/vim-surround'
+
+" robotframework
+Plug 'mfukar/robotframework-vim'
+
+" LaTeX
+Plug 'lervag/vimtex'
+
 call plug#end()
 
 
@@ -154,22 +185,24 @@ set completeopt=noinsert,menuone,noselect
 
 
 let g:lightline = {
-      \ 'colorscheme': 'powerline',
+      \ 'colorscheme': 'solarized',
       \ }
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "           Color
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""'
-colorscheme gruvbox
+"colorscheme gruvbox
+colorscheme NeoSolarized
+set background=dark
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                       Maps
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let mapleader = " "
 "Trees
-map <C-l> :NERDTreeToggle<CR>
-map <C-g> :UndotreeToggle<CR>
+nnoremap <C-l> :NERDTreeToggle<CR>
+nnoremap <C-g> :UndotreeToggle<CR>
 
 "window toggles
 nnoremap <leader>h :wincmd h<CR>
@@ -191,7 +224,7 @@ nnoremap  <leader>f :Files<CR>
 nnoremap <leader>rs :Rg<CR>
 
 "sh
-map <F9> <Esc>:w<CR>:!clear;python %<CR>
+map <F5> <Esc>:w<CR>:!clear;python %<CR>
 
 
 "Quit
@@ -224,6 +257,12 @@ nmap <C-c> :.w! ~/.vimbuffer<CR>
 " paste from buffer
 map <C-p> :r ~/.vimbuffer<CR>
 
+" Pytest
+nmap <silent><Leader>f <Esc>:Pytest file<CR>
+nmap <silent><Leader>c <Esc>:Pytest class<CR>
+nmap <silent><Leader>m <Esc>:Pytest method<CR>
+
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "           Other
@@ -231,8 +270,8 @@ map <C-p> :r ~/.vimbuffer<CR>
 
 lua require'colorizer'.setup()
 
-lua require'nvim_lsp'.tsserver.setup{ on_attach=require'completion'.on_attach }
 
+let g:indentLine_char_list = ['▏', '┊', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
 
 if executable('rg')
     let g:rg_derive_root='true'
@@ -240,6 +279,7 @@ endif
 
 "autocomplete
 let g:deoplete#enable_at_startup = 1
+
 
 
 let loaded_matchparen = 1
@@ -259,10 +299,19 @@ let g:ale_list_window_size = 5
 
 let g:rainbow_active = 1
 
+
+"autocmd BufEnter * call ncm2#enable_for_buffer()
+" IMPORTANT: :help Ncm2PopupOpen for more information
+set completeopt=noinsert,menuone,noselect
+
 " undo
 if has('persistent_undo')      "check if your vim version supports it
   set undofile                 "turn on the feature  
   set undodir=$HOME/.config/nvim/undo  "directory where the undo files will be stored
   endif
 
+" run sparkup on js file
+runtime! ftplugin/html/sparkup.vim
+
+filetype plugin on
 
