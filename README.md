@@ -1,5 +1,5 @@
 # Linux-config
-## This is my personal settings for perfect system linux with solarized theme
+#### This is my personal settings for perfect system linux with solarized theme
 
 ### What is to install:
 
