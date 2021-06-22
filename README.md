@@ -9,4 +9,5 @@
   4. Add alacritty terminal with theme [config](./allacrity.yml)
   5. Next install nevim with [init.vim](./init.vim)
   6. Better lock screen for i3 https://github.com/pavanjadhaw/betterlockscreen
+  7. Install TimeShift
    
