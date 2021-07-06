@@ -3,7 +3,7 @@
 
 ### What is to install:
 
-  1. Install I3 with settings like in [config](./i3/config)
+  1. Install I3 with settings like in [config](./.i3/config)
   2. Install zsh with [powerlevel10k](https://github.com/romkatv/powerlevel10k), [zsh-vim-mode](https://github.com/softmoth/zsh-vim-mode), autosuggestion and other essential plugins, add [ranger](https://github.com/ranger/ranger), 
   
   4. Add alacritty terminal with theme [config](./.config/alacritty/alacritty.yml)
