@@ -20,6 +20,6 @@
      - ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=23'
 
 
-### layout/
-![alt text](./screen?raw=true)
+### layout
+![alt text](./screen.png?raw=true)
    
