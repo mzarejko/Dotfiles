@@ -12,4 +12,13 @@
   6. Next install nevim with [init.vim](./init.vim)
      - [Shougo/deoplete.nvim](https://github.com/Shougo/deoplete.nvim) need python3 and pynvim
   8. Install TimeShift just in case of some scary problems
+  9. Add to .zshrc some useful aliases ant other stuff:
+     - alias v="nvim"
+     - alias r="ranger"
+     - export EDITOR='nvim'
+     - export VISUAL='nvim'
+     - ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=23'
+
+
+
    
