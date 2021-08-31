@@ -1,7 +1,7 @@
 # Linux-config
 #### This is my personal settings for perfect system linux 
 
-#### Neovim installation
+### Neovim installation
 
   - type in terminal commands below
     `pip install pynvim` (Optional for deoplete),
@@ -9,7 +9,7 @@
     `pip install ttserver` (LSP typescripts),
     `pip install pyright` (LSP python)
     
-#### Important apps
+### Important apps
 
   - [ranger](https://github.com/ranger/ranger)
   - [zsh-vim-mode](https://github.com/softmoth/zsh-vim-mode)
@@ -22,7 +22,7 @@
   - rofi
   - flameshot
  
-##### alias and config in .zshrc
+#### alias and config in .zshrc
 
   - alias v="nvim"
   - alias r="ranger"
@@ -30,7 +30,7 @@
   - export VISUAL='nvim'
   - ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=23'
 
-#### layout
+### layout
 ![alt text](./2021-08-31_10-29.png?raw=true)
 
    
