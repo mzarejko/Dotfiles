@@ -15,10 +15,11 @@
   - [zsh-vim-mode](https://github.com/softmoth/zsh-vim-mode)
   - [powerlevel10k](https://github.com/romkatv/powerlevel10k)
   - [autojump](https://github.com/wting/autojump)
-  - [redshift]()
-  - [picom]()
+  - [redshift](./.config/redshift.conf)
+  - [picom](./.config/picom.conf)
   - [alacritty](./.config/alacritty/alacritty.yml)
   - [tmux](./.tmux.conf)
+  - rofi
  
 # alias and config in .zshrc
 
