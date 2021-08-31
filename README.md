@@ -1,5 +1,5 @@
 # Dotfiles
-This is my personal settings for perfect system linux 
+This is my personal settings for linux Manjaro with i3, zsh and settings like in dotfiles
 
 ### Neovim installation
 
