@@ -31,6 +31,6 @@
   - ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=23'
 
 ### layout
-![alt text](./screen.png?raw=true)
+![alt text](./2021-08-31_10-29.png?raw=true)
 
    
