@@ -1,25 +1,34 @@
 # Linux-config
 #### This is my personal settings for perfect system linux 
 
-### What is to install:
+# Neovim installation
 
-  1. Install I3 with settings like in [config](./.i3/config)
-  2. Install zsh with [powerlevel10k](https://github.com/romkatv/powerlevel10k), [zsh-vim-mode](https://github.com/softmoth/zsh-vim-mode), autosuggestion and other essential plugins, add [ranger](https://github.com/ranger/ranger), 
-  
-  4. Add alacritty terminal with theme [config](./.config/alacritty/alacritty.yml)
-     - terminal with tmux must work in true color mode or neovim will work with corupted theme
-     - add Tmux to alacritty with [~/.tmux.conf](./.tmux.conf)
-  6. Next install nevim with [init.vim](./init.vim)
-     - [Shougo/deoplete.nvim](https://github.com/Shougo/deoplete.nvim) need python3 and pynvim
-  8. Install TimeShift just in case of some scary problems
-  9. Add to .zshrc some useful aliases ant other stuff:
-     - alias v="nvim"
-     - alias r="ranger"
-     - export EDITOR='nvim'
-     - export VISUAL='nvim'
-     - ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=23'
+  - type in terminal commands below
+    `pip install pynvim` (Optional for deoplete),
+    `pip install debugpy` (DAP for python),
+    `pip install ttserver` (LSP typescripts),
+    `pip install pyright` (LSP python)
+    
+# Important apps
 
+  - [ranger](https://github.com/ranger/ranger)
+  - [zsh-vim-mode](https://github.com/softmoth/zsh-vim-mode)
+  - [powerlevel10k](https://github.com/romkatv/powerlevel10k)
+  - [autojump](https://github.com/wting/autojump)
+  - [redshift]()
+  - [picom]()
+  - [alacritty](./.config/alacritty/alacritty.yml)
+  - [tmux](./.tmux.conf)
+ 
+# alias and config in .zshrc
+
+  - alias v="nvim"
+  - alias r="ranger"
+  - export EDITOR='nvim'
+  - export VISUAL='nvim'
+  - ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=23'
 
 ### layout
 ![alt text](./screen.png?raw=true)
+
    
