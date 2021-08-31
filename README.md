@@ -1,5 +1,5 @@
 # Dotfiles
-#### This is my personal settings for perfect system linux 
+This is my personal settings for perfect system linux 
 
 ### Neovim installation
 
