@@ -20,6 +20,7 @@
   - [alacritty](./.config/alacritty/alacritty.yml)
   - [tmux](./.tmux.conf)
   - rofi
+  - flameshot
  
 # alias and config in .zshrc
 
